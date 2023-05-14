@@ -1,4 +1,31 @@
 <?php
+include ('connect.php');
+if(!empty($_SESSION["id"])){
+  $id = $_SESSION["id"];
+  $result = mysqli_query($conn, "SELECT * FROM employees WHERE id = $id");
+  $row = mysqli_fetch_assoc($result);
+}
+else{
+  header("Location: Login.php");
+}
 ?>
 
-<html>sdfdfdsfdfsfdsfsssfsdf</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Home</title>
+</head>
+<body>
+<h1>Home</h1>
+<nav>
+<ul>
+<li><a href="usage-monitoring.php">Usage Monitoring</a></li>
+<li><a href="maintenance-schedules.php">Maintenance Schedules</a></li>
+<li><a href="inventory-management.php">Inventory Management</a></li>
+<li><a href="profile.php">Profile</a></li>
+<li><a href="logout.php">Log Out</a></li>
+</ul>
+</nav>
+</body>
+</html>
