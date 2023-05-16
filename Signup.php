@@ -17,11 +17,7 @@ if(isset($_POST["submit"])){
   else{
     
     if($password == $Confirmpassword){
-    
-     $pass = password_hash($password, PASSWORD_DEFAULT); 
-        
-         
-      $query = "INSERT INTO employees VALUES('','$username','$email','$pass')";
+     $query = "INSERT INTO employees VALUES('','$username','$email','$password')";
       mysqli_query($conn, $query);
       echo
       "<script> alert('Registration Successful'); </script>";
