@@ -41,14 +41,16 @@ if(isset($_POST["submit"])){
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="square">
 <h1>Signup Form</h1>
 <form action="Signup.php" method="post">
-<input type="text" name="username" id= "username"  placeholder="Username" required value="" >
-<input type="email" name="email" id= "email"  placeholder="Email" required value="">
-<input type="password" name="password" id= "password"  placeholder="Password" required value="">
-<input type="password" name="Confirmpassword" id="Confirmpassword" placeholder="Confirm Password" required value="">
-<input type="submit" value="Signup" name="submit">
+<input type="text" name="username" id= "username"  placeholder="Username" required value="" > <br> </br>
+<input type="email" name="email" id= "email"  placeholder="Email" required value=""><br> </br>
+<input type="password" name="password" id= "password"  placeholder="Password" required value=""><br> </br>
+<input type="password" name="Confirmpassword" id="Confirmpassword" placeholder="Confirm Password" required value=""> <br> </br>
+<input type="submit" value="Signup" name="submit"> <br> </br>
 <a href="Login.php">Already have an account? Login!</a>
 </form>
+</div>
 </body>
 </html>
