@@ -15,8 +15,10 @@ else{
 <html>
 <head>
 <title>Home</title>
+<link rel="stylesheet" href="home.css">
 </head>
 <body>
+<div class="square"> </div>
 <h1>Home</h1>
 <nav>
 <ul>
