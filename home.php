@@ -22,6 +22,7 @@ else{
 <h1>Home</h1>
 <nav>
 <ul>
+<li><img src="Box.svg" alt="Icon description"></li>
 <li><a href="usage-monitoring.php">Usage Monitoring</a></li>
 <li><a href="maintenance-schedules.php">Maintenance Schedules</a></li>
 <li><a href="inventory-management.php">Inventory Management</a></li>
