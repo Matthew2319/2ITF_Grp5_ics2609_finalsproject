@@ -34,7 +34,7 @@ if(isset($_POST["submit"])){
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="square">
+<div class="square"> </div>
 <h1>Login Form</h1>
 <form action="login.php" method="post">
 <input type="text" name="username"  id= "username" placeholder="Username" required value=""><br> </br>
@@ -43,6 +43,6 @@ if(isset($_POST["submit"])){
 <input type="submit" value="login" name="submit">
 <a href="Signup.php">Don't have an account? Sign up!</a>
 </form>
-</div>
+
 </body>
 </html>
