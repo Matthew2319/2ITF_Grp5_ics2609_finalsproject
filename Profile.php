@@ -16,11 +16,11 @@ if(!empty($_SESSION["id"])){
 </head>
 <body>
 
-<h1>Profile</h1>
 <div class="square"> 
-<p>Username: <?php echo ($row ["username"]); ?></p>
-<p>Email: <?php echo ($row ["email"]); ?></p>
-<p>Password: <?php echo ($row ["password"]); ?></p>
+<h2>Profile Page</h2>
+<p2>Username: <?php echo ($row ["username"]); ?></p2>
+<p2>Email: <?php echo ($row ["email"]); ?></p2>
+<p2>Password: <?php echo ($row ["password"]); ?></p2>
 <a href="home.php">Back to Home</a>
 </div>
 </body>

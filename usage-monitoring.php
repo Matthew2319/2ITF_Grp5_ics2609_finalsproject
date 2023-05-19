@@ -21,7 +21,7 @@
   </style>
 </head>
 <body>
-  <h1>Inventory Management</h1>
+  <h1>Usage Monitoring</h1>
   
   <form method="post" action="display.php">
     <label for="labNumber">Laboratory Number:</label>

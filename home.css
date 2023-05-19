@@ -1,92 +1,3 @@
-/* 
-  body {
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .container {
-    width: 500px;
-    margin: 0 auto;
-  }
-  
-  h1 {
-    text-align: center;
-  }
-  
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  li {
-    
-    overflow:hidden;
-    border:1px solid #f9f7f7;
-    background-color: rgb(214, 208, 208);
-  }
-  .container li  {
-    background-color: inherit;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding-right: 8% ;
-   
-  }
-  
-  
-  a {
-    text-decoration: none;
-    color: #000;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-   
-   */
-
-   /* body {
-
-   body {
->>>>>>> 88368c4cc6e9afde4bcd48ae9afd3bf2c4ed1f16
-    background-color: #ffffff;
-    font-family: sans-serif;
-  }
-  
-  .container {
-    width: 400px;
-    margin: 0 auto;
-  }
-  
-  h1 {
-    text-align: center;
-  }
-  
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  li {
-    display: inline-block;
-    width: 100px;
-    margin: 10px 0;
-  }
-  
-  a {
-    text-decoration: none;
-    color: #000000;
-    font-weight: bold;
-  }
-  
-  a:hover {
-    background-color: #000000;
-    color: #ffffff;
-  } */
 
   body {
     font-family: sans-serif;
@@ -95,30 +6,42 @@
     background-color: #2C2F33;
 }
 
-/* .square {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-conte
-    nt: center;
-    height: 100vh;
-    position: relative;
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 50vw;
-    height: 69vh;
-    background-color: #2C2F33;
-    border-radius: 40px;
-    z-index: -1;
-    padding: 20px;
-} */
+img{
+  max-width: 65%;
+  max-height: 65%;
+}
+
+li img{
+  padding-left: 30%;
+
+}
+
+
 
 h1 {
     text-align: center;
     color: white;
+    font-size: 4.5ch;
+}
+
+.square h1{
+  position: relative;
+  bottom:58%;
+  padding-right: 80%;
+
+  
+
+}
+h2{
+  text-align: center;
+  color: white;
+  font-size: 4.5ch;
+}
+
+.square h2{
+  position: relative;
+  bottom:10%;
+  padding-right: 75%;
 }
 
 form {
@@ -146,7 +69,13 @@ input[type="submit"] {
 
 a {
     text-decoration: none;
-    color: white;
+    color: rgb(255, 255, 255);
+    
+}
+li a{
+position:sticky;
+top: 0;
+font-size: 3ch;
 }
 
 .square {
@@ -155,17 +84,17 @@ a {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  
-  position: absolute;
-  top: 50%;
+  position:absolute;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 95vw;
-  height: 77vh;
+  width: 80vw;
+  height: 60vh;
   background-color: #4E5154;
   color: white;
   border-radius: 40px;
   z-index: -1;
+  padding-bottom:5%;
 }
 
 .button-container {
@@ -173,7 +102,7 @@ a {
 }
 
 .button {
-  background-color: blue;
+  background-color: rgb(24, 24, 108);
   color: white;
   padding: 10px 20px;
   border: none;
@@ -186,7 +115,65 @@ a {
   cursor: pointer;
   
 }
+p {
+  text-decoration: none;
+  color:white;
+  text-align: left;
+  padding-left: 12%;
+  padding-top: 12%;
+  font-size: 6ch;
+}
 
+p2 {
+  color:white;
+  font-size: 5ch;
+  text-align: center;
+  padding-bottom: 5%;
+  
+}
+
+.square a {
+  font-size: 5ch;
+  text-decoration: underline;
+}
+
+.square a:hover{
+  transition: 0.3s;
+  transform: scale(1.3);
+  
+}
+
+[data-tab-content]{
+  display:none;
+
+}
+.active[data-tab-content]{
+  display:block
+}
+
+.tabs{
+  display:flex;
+  justify-content:space-around;
+  list-style-type: none;
+  margin:0%;
+  padding: 0;
+  border-bottom: 1px solid black;  
+
+
+}
+.tab{
+  cursor: pointer;
+  padding: 20px;
+}
+.tabs.active{
+  background-color: #ccc;
+}
+
+.tab:hover {
+  background-color: #aaaa;
+ 
+ 
+}
 
 
   
