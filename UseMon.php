@@ -14,7 +14,7 @@ else{
 <!DOCTYPE html>
 <html>
 <head>
-<title>Home</title>
+<title>Usage Monitoring</title>
 <link rel="stylesheet" href="home.css">
 <script src="script.js" defer></script>
 </head>

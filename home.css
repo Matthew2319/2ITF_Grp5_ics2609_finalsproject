@@ -196,7 +196,16 @@ ul.tabs {
   background-color: #23272A;
 }
 
+/* .space {
+  margin-left: 2000px; /* Adjust the desired amount of horizontal spacing */
+/* } */
 
-  
-  
-
+.bttn {
+  background-color: #7289DA;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 40px;
+  text-align: center;
+}

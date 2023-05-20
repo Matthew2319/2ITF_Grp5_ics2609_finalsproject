@@ -14,13 +14,14 @@ else{
 <!DOCTYPE html>
 <html>
 <head>
-<title>Home</title>
+<title>Inventory Management</title>
 <link rel="stylesheet" href="home.css">
 <script src="script.js" defer></script>
 </head>
 <body>
-<div class="square"> 
+<div class="square">  
 <h1>Inventory Management</h1>
+<!-- <span class="space"><input type="button" value="Create new record" onclick="" class="bttn"></span> -->
 <div class="square2"> 
 </div>
 </div>

@@ -14,15 +14,13 @@ else{
 <!DOCTYPE html>
 <html>
 <head>
-<title>Maintenance Schedule</title>
+<title>Delete record</title>
 <link rel="stylesheet" href="home.css">
 <script src="script.js" defer></script>
 </head>
 <body>
 <div class="square"> 
-<h1>Maintenance Schedule</h1>
-<div class="square2"> 
-</div>
+<h1>Delete Record</h1>
 </div>
 
 <ul class="tabs">
@@ -36,6 +34,9 @@ else{
 
 <div class="tab-content">
     <div id="home" data-tab-content class="active">
+      <p>Are you sure you want to delete the record?</p> 
+      <input type="button" value="Delete" name="myButton" onclick="myFunction()" class="bttn"> <input type="button" value="Go back" name="myButton" onclick="myFunction()" class="bttn">
+
       </div>
 
       <div id="usage-monitoring" data-tab-content>
