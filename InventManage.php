@@ -5,23 +5,24 @@ if(!empty($_SESSION["id"])){
   $result = mysqli_query($conn, "SELECT * FROM employees WHERE id = $id");
   $row = mysqli_fetch_assoc($result);
 }
-
-
+else{
+  header("Location: Login.php");
+}
 ?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
-<title>Profile</title>
+<title>Home</title>
 <link rel="stylesheet" href="home.css">
+<script src="script.js" defer></script>
 </head>
 <body>
-
 <div class="square"> 
-<h2>Profile Page</h2>
-<p2>Username: <?php echo ($row ["username"]); ?></p2>
-<p2>Email: <?php echo ($row ["email"]); ?></p2>
-<p2>Password: <?php echo ($row ["password"]); ?></p2>
-<a href="home.php">Back to Home</a>
+<h1>Inventory Management</h1>
+<div class="square2"> 
+</div>
 </div>
 
 <ul class="tabs">
@@ -33,5 +34,29 @@ if(!empty($_SESSION["id"])){
 <li data-tab-target="#logout" class="tab"><a href="logout.php">Log Out</a></li>
 </ul>
 
+<div class="tab-content">
+    <div id="home" data-tab-content class="active">
+      </div>
+
+      <div id="usage-monitoring" data-tab-content>
+      <a href="usage-monitoring.php"></a>
+    </div>
+
+    <div id="maintenance-schedules" data-tab-content>
+      <a href="maintenance-schedules.php"></a>
+    </div>
+
+    <div id="inventory-management" data-tab-content>
+      <a href="inventory-management.php"></a>
+    </div>
+
+    <div id="profile" data-tab-content>
+      <a href="profile.php"></a>
+    </div>
+   
+    <div id="logout" data-tab-content>
+      <a href="logout.php"></a>
+    </div>
+    </div>
 </body>
 </html>

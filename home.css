@@ -7,8 +7,8 @@
 }
 
 img{
-  max-width: 65%;
-  max-height: 65%;
+  width: 5vw;
+  height: 5vh;
 }
 
 li img{
@@ -21,7 +21,7 @@ li img{
 h1 {
     text-align: center;
     color: white;
-    font-size: 4.5ch;
+    font-size: 4ch;
 }
 
 .square h1{
@@ -35,7 +35,7 @@ h1 {
 h2{
   text-align: center;
   color: white;
-  font-size: 4.5ch;
+  font-size: 4ch;
 }
 
 .square h2{
@@ -91,6 +91,25 @@ font-size: 3ch;
   width: 80vw;
   height: 60vh;
   background-color: #4E5154;
+  color: white;
+  border-radius: 40px;
+  z-index: -1;
+  padding-bottom:5%;
+}
+
+.square2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  position:absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80vw;
+  height: 50vh;
+  background-color: #D9D9D9;
   color: white;
   border-radius: 40px;
   z-index: -1;
@@ -159,11 +178,11 @@ p2 {
   padding: 0;
   border-bottom: 1px solid black;  
 
-
 }
 .tab{
   cursor: pointer;
   padding: 20px;
+  font-size: 0.85rem;
 }
 .tabs.active{
   background-color: #ccc;
