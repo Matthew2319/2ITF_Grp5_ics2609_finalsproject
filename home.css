@@ -170,9 +170,11 @@ p2 {
 }
 
 .tab:hover {
-  background-color: #aaaa;
- 
- 
+  background-color: #2C2F33;
+}
+
+ul.tabs {
+  background-color: #23272A;
 }
 
 
