@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Inventory Management - Entries</title>
+  <title>Usage-Monitoring  - Entries</title>
   <link rel="stylesheet" href="home.css">
   
   <div class="button-container">
 
-  <a class="button" href="inventory-management.php">Create New Record</a>
+  <a class="button" href="usage-monitoring.php">Create New Record</a>
 
 </head>
 <body>
-  <h1>Inventory Management - Entries</h1>
+  <h1>Usage-Monitoring - Entries</h1>
 
   <?php
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form inputs
-    $labNumber = $_POST["labNumber"];
-    $compNumber = $_POST["compNumber"];
-    $status = $_POST["status"];
-    $maintenance = $_POST["maintenance"];
-
+    $computer_no = $_POST["computer_no"];
+    $date = $_POST["date"];
+    $time_duration = $_POST["time_duration"];
+    $action = $_POST["action"];
     // Connect to the database
     $servername = "localhost";
     $username = "root";
@@ -31,8 +30,8 @@
     }
 
     // Insert the new entry into the database
-    $sql = "INSERT INTO entries (labNumber, compNumber, status, maintenance)
-            VALUES ('$labNumber', '$compNumber', '$status', '$maintenance')";
+    $sql = "INSERT INTO usage_monitoring (computer_no, date, time_duration, action)
+            VALUES (' $computer_no', '$date', ' $time_duration', '$action')";
     if ($conn->query($sql) === TRUE) {
       echo "New entry added successfully.";
     } else {
@@ -46,10 +45,11 @@
   <h2>Entries:</h2>
   <table>
     <tr>
-      <th>Laboratory Number</th>
       <th>Computer Number</th>
-      <th>Status</th>
-      <th>Maintenance Required</th>
+      <th>Date</th>
+      <th>Time Duration</th>
+      <th>Action</th>
+
     </tr>
 
     <?php
@@ -63,16 +63,16 @@
       die("Connection failed: " . $conn->connect_error);
     }
 
-    $sql = "SELECT * FROM entries";
+    $sql = "SELECT * FROM usage_monitoring";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
       while ($row = $result->fetch_assoc()) {
         echo "<tr>";
-        echo "<td>" . $row['labNumber'] . "</td>";
-        echo "<td>" . $row['compNumber'] . "</td>";
-        echo "<td>" . $row['status'] . "</td>";
-        echo "<td>" . $row['maintenance'] . "</td>";
+        echo "<td>" . $row['computer_no'] . "</td>";
+        echo "<td>" . $row['date'] . "</td>";
+        echo "<td>" . $row['time_duration'] . "</td>";
+        echo "<td>" . $row['action'] . "</td>";
         echo "</tr>";
       }
     } else {

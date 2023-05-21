@@ -12,7 +12,8 @@ img{
 }
 
 li img{
-  padding-left: 30%;
+  padding-right: 30%;
+  
 
 }
 
@@ -42,11 +43,13 @@ h2{
   position: relative;
   bottom:10%;
   padding-right: 75%;
+  padding-bottom: 6%;
 }
 
 form {
     width: 300px;
     margin: 0 auto;
+    padding-top: 15%;
 }
 
 input {
@@ -55,16 +58,18 @@ input {
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 40px;
+    padding-left:3%;
 }
+
 
 input[type="submit"] {
     background-color: #000;
     color: white;
-    padding: 10px 20px;
+    padding-left: 3%;
     border: none;
     cursor: pointer;
     border-radius: 50px;
-    text-align: center;
+    text-align:center;
 }
 
 a {
@@ -76,6 +81,7 @@ li a{
 position:sticky;
 top: 0;
 font-size: 3ch;
+
 }
 
 .square {
@@ -185,7 +191,7 @@ p2 {
   font-size: 0.85rem;
 }
 .tabs.active{
-  background-color: #ccc;
+  background-color: #ffffff;
 }
 
 .tab:hover {
@@ -209,3 +215,19 @@ ul.tabs {
   border-radius: 40px;
   text-align: center;
 }
+
+table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+  

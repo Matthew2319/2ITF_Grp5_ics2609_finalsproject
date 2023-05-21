@@ -24,7 +24,7 @@ else{
 </div>
 
 <ul class="tabs">
-<li  data-tab-target="#home" class="active tab"><a href="home.php"><img src="Box.svg" alt="Icon description"></li>
+<li  data-tab-target="#home" class="active tab"><a href="home.php"><img src="Box.svg" alt="Icon description"></a></li>
 <li data-tab-target="#usage-monitoring" class=" tab"><a href="usage-monitoring.php">Usage Monitoring</a></li>
 <li data-tab-target="#maintenance-schedules" class="tab"><a href="maintenance-schedules.php">Maintenance Schedules</a></li>
 <li data-tab-target="#inventory-management" class="tab"><a href="inventory-management.php">Inventory Management</a></li>
@@ -50,6 +50,8 @@ else{
     </div>
 
     <div id="profile" data-tab-content>
+    
+
       <a href="profile.php"></a>
     </div>
    
