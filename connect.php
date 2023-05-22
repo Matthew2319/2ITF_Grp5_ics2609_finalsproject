@@ -1,3 +1,12 @@
 <?php
 session_start();
-$conn = mysqli_connect("localhost", "root", "", "laboratory");
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "laboratory";
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+  

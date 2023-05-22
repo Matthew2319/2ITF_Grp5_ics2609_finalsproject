@@ -1,97 +1,47 @@
+
+<?php
+include ('connect.php');
+if(isset($_POST['submit'])){
+  $computer_no=$_POST['computer_no'];
+  $date=$_POST['date'];
+  $time_duration=$_POST['time_duration'];
+  
+
+  $sql="insert into `usage_monitoring`(computer_no,date,time_duration)
+  values('$computer_no','$date','$time_duration')";
+  $result=$conn->query($sql);
+  if($result == TRUE){
+    header('location: usage-monitoring.php');
+  }else{
+    echo "Error:" . $sql . "<br>" . $conn->error;
+  }
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Usage-Monitoring  - Entries</title>
-  <link rel="stylesheet" href="home.css">
-  
-  <div class="button-container">
-
-  <a class="button" href="usage-monitoring.php">Create New Record</a>
-  <a class="button" href="usage-monitoring.php">Go Back</a>
-  
-
+<title>Usage Monitoring</title>
+<link rel="stylesheet" href="home.css">
 </head>
 <body>
-  <h1>Usage-Monitoring</h1>
 
-  <?php
-  if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve form inputs
-    $computer_no = $_POST["computer_no"];
-    $date = $_POST["date"];
-    $time_duration = $_POST["time_duration"];
-    $action = $_POST["action"];
-    // Connect to the database
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "laboratory";
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-    }
+<h1>Usage Monitoring</h1>
 
-    // Insert the new entry into the database
-    $sql = "INSERT INTO usage_monitoring (computer_no, date, time_duration, action)
-            VALUES (' $computer_no', '$date', ' $time_duration', '$action')";
-    if ($conn->query($sql) === TRUE) {
-      echo "<p2><center>New entry added successfully</center></p2>.";
-    } else {
-      echo "Error: " . $sql . "<br>" . $conn->error;
-    }
+<div class="square"> 
+</div>
+</div>
+<form method="post">
+    <label for="computer_no">Computer Number:</label>
+    <input type="text" id="computer_no" name="computer_no" required><br>
 
-    $conn->close();
-  }
-  ?>
+    <label for="date">Date:</label>
+    <input type="text" id="date" name="date" required value="yyyy-mm-dd"><br>
 
- 
-  <table>
-    <tr>
-      <th>Computer Number</th>
-      <th>Date</th>
-      <th>Time Duration</th>
-      <th>Action</th>
+    <label for="time_duration">Time Duration:</label>
+    <input type="text" id="time_duration" name="time_duration" required><br>
 
-    </tr>
-
-    <?php
-    // Retrieve all entries from the database
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "laboratory";
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-    }
-
-    $sql = "SELECT * FROM usage_monitoring";
-    $result = $conn->query($sql);
-
-    if ($result) {
-      while ($row = mysqli_fetch_assoc($result)) {
-        $computer_no=$row['computer_no'];
-        $date=$row['date'];
-        $time_duration=$row['time_duration'];
-        $action=$row['action'];
-        echo '<tr>;
-        
-        <th scope=$row>'.$computer_no.'</th>
-        <th scope=$row>'.$date.'</th>
-        <th scope=$row>'.$time_duration.'</th>
-        <th scope=$row>'.$action.'</th>
-         </tr>';
-      }
-      }
-    else {
-      echo "No entries found.";
-    }
-
-    $conn->close();
-    ?>
-
-  </table>
-
-   <!-- <button onclick="location.href='index.php'">Create New Record</button>  -->
+    <input type="submit" name="submit" value="Add Entry">
+    <a class="button1" href="usage-monitoring.php">Go Back</a>
+  </form>
 </body>
-</html>
+</html> 

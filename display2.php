@@ -1,95 +1,54 @@
+
+<?php
+include ('connect.php');
+if(isset($_POST['submit'])){
+  $ComputerNumber=$_POST['ComputerNumber'];
+  $Date_=$_POST['Date_'];
+  $Time_=$_POST['Time_'];
+  $maintenance_=$_POST['maintenance_'];
+
+  $sql="insert into `maintenance_schedule`(ComputerNumber,Date_,Time_,maintenance_)
+  values('$ComputerNumber','$Date_','$Time_','$maintenance_')";
+  $result=$conn->query($sql);
+  if($result == TRUE){
+    header('location:maintenance-schedules.php');
+  }else{
+    echo "Error:" . $sql . "<br>" . $conn->error;
+  }
+}
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
-  <title>maintenance-schedules - Entries</title>
-  <link rel="stylesheet" href="home.css">
-  
-  <div class="button-container">
-
-  <a class="button" href="maintenance-schedules.php">Create New Record</a>
-  <a class="button" href="maintenance-schedules.php">Go Back</a>
-
+<title>Maintenance Schedule</title>
+<link rel="stylesheet" href="home.css">
 </head>
 <body>
-  <h1>Maintenance-Schedules</h1>
 
-  <?php
-  if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve form inputs
-    $ComputerNumber = $_POST["ComputerNumber"];
-    $Date_ = $_POST["Date_"];
-    $Time_ = $_POST["Time_"];
-    $maintenance_ = $_POST["maintenance_"];
-    // Connect to the database
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "laboratory";
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-    }
+<h1>Maintenance Schedule<</h1>
 
-    // Insert the new entry into the database
-    $sql = "INSERT INTO maintenance_schedule (ComputerNumber, Date_, Time_, maintenance_)
-            VALUES (' $ComputerNumber', '$Date_', ' $Time_', '$maintenance_')";
-    if ($conn->query($sql) === TRUE) {
-      echo "<p2><center>New entry added successfully</center></p2>.";
-    } else {
-      echo "Error: " . $sql . "<br>" . $conn->error;
-    }
+<div class="square"> 
+</div>
+</div>
 
-    $conn->close();
-  }
-  ?>
+  <form method="post">
+    <label for="ComputerNumber">Computer Number:</label>
+    <input type="text" id="ComputerNumber" name="ComputerNumber" required><br>
 
-  
-  <table>
-    <tr>
-      <th>Computer Number</th>
-      <th>Date</th>
-      <th>Time</th>
-      <th>Maintenance Required</th>
+    <label for="Date_">Date:</label>
+    <input type="text" id="Date_" name="Date_" required value="yyyy-mm-dd"><br>
 
-    </tr>
+    <label for="Time_">Time:</label>
+    <input type="text" id="Time_" name="Time_" required value="00:00 am/pm"><br>
+    
+    <label for="maintenance_">Maintenance:</label>
+    <input type="text" id="maintenance_" name="maintenance_" required><br>
 
-    <?php
-    // Retrieve all entries from the database
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "laboratory";
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-    }
+    <input type="submit" name="submit" value="Add Entry">
+    <a class="button1" href="maintenance-schedules.php">Go Back</a>
 
-    $sql = "SELECT * FROM maintenance_schedule";
-    $result = $conn->query($sql);
-
-    if ($result) {
-      while ($row = mysqli_fetch_assoc($result)) {
-        $ComputerNumber=$row['ComputerNumber'];
-        $Date_=$row['Date_'];
-        $Time_=$row['Time_'];
-        $maintenance_=$row['maintenance_'];
-        echo '<tr>;
-        
-        <th scope=$row>'.$ComputerNumber.'</th>
-        <th scope=$row>'.$Date_.'</th>
-        <th scope=$row>'.$Time_.'</th>
-        <th scope=$row>'.$maintenance_.'</th>
-         </tr>';
-      }
-    } else {
-      echo "No entries found.";
-    }
-
-    $conn->close();
-    ?>
-
-  </table>
-
-   <!-- <button onclick="location.href='index.php'">Create New Record</button>  -->
+  </form>
 </body>
-</html>
+</html> 
