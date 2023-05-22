@@ -21,7 +21,6 @@ if(!empty($_SESSION["id"])){
 <p2>Username: <?php echo ($row ["username"]); ?></p2>
 <p2>Email: <?php echo ($row ["email"]); ?></p2>
 <p2>Password: <?php echo ($row ["password"]); ?></p2>
-<a href="home.php">Back to Home</a>
 </div>
 
 <ul class="tabs">

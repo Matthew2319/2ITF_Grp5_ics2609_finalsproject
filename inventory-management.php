@@ -57,7 +57,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>maintenance-schedules - Entries</title>
+  <title>Inventory Management - Entries</title>
   <link rel="stylesheet" href="home.css">
   <script src="script.js" defer></script>
 </head>
