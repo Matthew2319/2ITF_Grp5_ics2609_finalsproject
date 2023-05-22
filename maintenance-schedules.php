@@ -21,13 +21,13 @@
 <li data-tab-target="#logout" class="tab"><a href="logout.php">Log Out</a></li>
 </ul>
   <div class="button-container">
-
+  <h1>Maintenance-Schedules</h1>
   <a class="button" href="display2.php">Create New Record</a>
 </div>
 
 </head>
 </body>
-  <h1>Maintenance-Schedules</h1>
+  
 
   <?php
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -91,8 +91,8 @@
         <th scope=$row>'.$maintenance_.'</th>
 
         <td>
-        <button class="btn btn-primary"><a href="update2.php? updateid='.$id.'" class="text-light">Update</a></button>
-      <button class="btn btn-danger"><a href="delete2.php? deleteid='.$id.'" class="text-light">Delete</a></button>
+        <button class="btn btn-primary"><a href="update2.php? updateid='.$id.'" class="text-light"><img src="pencil-create.svg" alt="Icon description"></a></button>
+      <button class="btn btn-danger"><a href="delete2.php? deleteid='.$id.'" class="text-light"><img src="trash.svg" alt="Icon description"></a></button>
     </td>
          </tr>';
       }
