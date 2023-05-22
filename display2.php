@@ -7,10 +7,11 @@
   <div class="button-container">
 
   <a class="button" href="maintenance-schedules.php">Create New Record</a>
+  <a class="button" href="maintenance-schedules.php">Go Back</a>
 
 </head>
 <body>
-  <h1>maintenance-schedules - Entries</h1>
+  <h1>Maintenance-Schedules</h1>
 
   <?php
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -33,7 +34,7 @@
     $sql = "INSERT INTO maintenance_schedule (ComputerNumber, Date_, Time_, maintenance_)
             VALUES (' $ComputerNumber', '$Date_', ' $Time_', '$maintenance_')";
     if ($conn->query($sql) === TRUE) {
-      echo "New entry added successfully.";
+      echo "<p2><center>New entry added successfully</center></p2>.";
     } else {
       echo "Error: " . $sql . "<br>" . $conn->error;
     }
@@ -42,7 +43,7 @@
   }
   ?>
 
-  <h2>Entries:</h2>
+  
   <table>
     <tr>
       <th>Computer Number</th>
@@ -66,14 +67,19 @@
     $sql = "SELECT * FROM maintenance_schedule";
     $result = $conn->query($sql);
 
-    if ($result->num_rows > 0) {
-      while ($row = $result->fetch_assoc()) {
-        echo "<tr>";
-        echo "<td>" . $row['ComputerNumber'] . "</td>";
-        echo "<td>" . $row['Date_'] . "</td>";
-        echo "<td>" . $row['Time_'] . "</td>";
-        echo "<td>" . $row['maintenance_'] . "</td>";
-        echo "</tr>";
+    if ($result) {
+      while ($row = mysqli_fetch_assoc($result)) {
+        $ComputerNumber=$row['ComputerNumber'];
+        $Date_=$row['Date_'];
+        $Time_=$row['Time_'];
+        $maintenance_=$row['maintenance_'];
+        echo '<tr>;
+        
+        <th scope=$row>'.$ComputerNumber.'</th>
+        <th scope=$row>'.$Date_.'</th>
+        <th scope=$row>'.$Time_.'</th>
+        <th scope=$row>'.$maintenance_.'</th>
+         </tr>';
       }
     } else {
       echo "No entries found.";

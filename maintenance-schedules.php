@@ -41,10 +41,10 @@ else{
     <input type="text" id="ComputerNumber" name="ComputerNumber" required><br>
 
     <label for="Date_">Date:</label>
-    <input type="text" id="Date_" name="Date_" required><br>
+    <input type="text" id="Date_" name="Date_" required value="yyyy-mm-dd"><br>
 
     <label for="Time_">Time:</label>
-    <input type="text" id="Time_" name="Time_" required><br>
+    <input type="text" id="Time_" name="Time_" required value="00:00 am/pm"><br>
     
     <label for="maintenance_">Maintenance:</label>
     <input type="text" id="maintenance_" name="maintenance_" required><br>

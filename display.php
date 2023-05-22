@@ -3,14 +3,15 @@
 <head>
   <title>Inventory Management - Entries</title>
   <link rel="stylesheet" href="home.css">
-  
+
   <div class="button-container">
 
   <a class="button" href="inventory-management.php">Create New Record</a>
+  <a class="button" href="inventory-management.php">Go Back</a>
 
 </head>
 <body>
-  <h1>Inventory Management - Entries</h1>
+  <h1>Inventory Management</h1>
 
   <?php
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -34,7 +35,7 @@
     $sql = "INSERT INTO entries (labNumber, compNumber, status, maintenance)
             VALUES ('$labNumber', '$compNumber', '$status', '$maintenance')";
     if ($conn->query($sql) === TRUE) {
-      echo "New entry added successfully.";
+      echo "<h2><center>New entry added successfully</center></h2>.";
     } else {
       echo "Error: " . $sql . "<br>" . $conn->error;
     }
@@ -42,16 +43,16 @@
     $conn->close();
   }
   ?>
-
-  <h2>Entries:</h2>
+   <div class="container"> 
   <table>
+    
     <tr>
       <th>Laboratory Number</th>
       <th>Computer Number</th>
       <th>Status</th>
       <th>Maintenance Required</th>
     </tr>
-
+</div>
     <?php
     // Retrieve all entries from the database
     $servername = "localhost";
@@ -66,14 +67,19 @@
     $sql = "SELECT * FROM entries";
     $result = $conn->query($sql);
 
-    if ($result->num_rows > 0) {
-      while ($row = $result->fetch_assoc()) {
-        echo "<tr>";
-        echo "<td>" . $row['labNumber'] . "</td>";
-        echo "<td>" . $row['compNumber'] . "</td>";
-        echo "<td>" . $row['status'] . "</td>";
-        echo "<td>" . $row['maintenance'] . "</td>";
-        echo "</tr>";
+    if ($result) {
+      while ($row = mysqli_fetch_assoc($result)) {
+        $labNumber=$row['labNumber'];
+        $compNumber=$row['compNumber'];
+        $status=$row['status'];
+        $maintenance=$row['maintenance'];
+        echo '<tr>;
+        
+        <th scope=$row>'.$labNumber.'</th>
+        <th scope=$row>'.$compNumber.'</th>
+        <th scope=$row>'.$status.'</th>
+        <th scope=$row>'.$maintenance.'</th>
+         </tr>';
       }
     } else {
       echo "No entries found.";

@@ -150,12 +150,14 @@ p {
 }
 
 p2 {
-  color:white;
+  color:rgb(255, 254, 254);
   font-size: 5ch;
   text-align: center;
   padding-bottom: 5%;
   
 }
+
+
 
 .square a {
   font-size: 5ch;
@@ -219,15 +221,17 @@ ul.tabs {
 table {
       border-collapse: collapse;
       width: 100%;
+      
     }
 
     th, td {
-      border: 1px solid #ccc;
+      border: 1px solid #000000;
       padding: 8px;
       text-align: left;
+      
     }
 
     th {
-      background-color: #f2f2f2;
+      background-color: #fbfbfb;
     }
   

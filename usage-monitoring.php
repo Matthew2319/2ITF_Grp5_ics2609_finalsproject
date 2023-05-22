@@ -40,7 +40,7 @@ else{
     <input type="text" id="computer_no" name="computer_no" required><br>
 
     <label for="date">Date:</label>
-    <input type="text" id="date" name="date" required><br>
+    <input type="text" id="date" name="date" required value="yyyy-mm-dd"><br>
 
     <label for="time_duration">Time Duration:</label>
     <input type="text" id="time_duration" name="time_duration" required><br>

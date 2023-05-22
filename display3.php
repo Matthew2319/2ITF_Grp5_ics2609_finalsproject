@@ -7,10 +7,12 @@
   <div class="button-container">
 
   <a class="button" href="usage-monitoring.php">Create New Record</a>
+  <a class="button" href="usage-monitoring.php">Go Back</a>
+  
 
 </head>
 <body>
-  <h1>Usage-Monitoring - Entries</h1>
+  <h1>Usage-Monitoring</h1>
 
   <?php
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -33,7 +35,7 @@
     $sql = "INSERT INTO usage_monitoring (computer_no, date, time_duration, action)
             VALUES (' $computer_no', '$date', ' $time_duration', '$action')";
     if ($conn->query($sql) === TRUE) {
-      echo "New entry added successfully.";
+      echo "<p2><center>New entry added successfully</center></p2>.";
     } else {
       echo "Error: " . $sql . "<br>" . $conn->error;
     }
@@ -42,7 +44,7 @@
   }
   ?>
 
-  <h2>Entries:</h2>
+ 
   <table>
     <tr>
       <th>Computer Number</th>
@@ -66,16 +68,22 @@
     $sql = "SELECT * FROM usage_monitoring";
     $result = $conn->query($sql);
 
-    if ($result->num_rows > 0) {
-      while ($row = $result->fetch_assoc()) {
-        echo "<tr>";
-        echo "<td>" . $row['computer_no'] . "</td>";
-        echo "<td>" . $row['date'] . "</td>";
-        echo "<td>" . $row['time_duration'] . "</td>";
-        echo "<td>" . $row['action'] . "</td>";
-        echo "</tr>";
+    if ($result) {
+      while ($row = mysqli_fetch_assoc($result)) {
+        $computer_no=$row['computer_no'];
+        $date=$row['date'];
+        $time_duration=$row['time_duration'];
+        $action=$row['action'];
+        echo '<tr>;
+        
+        <th scope=$row>'.$computer_no.'</th>
+        <th scope=$row>'.$date.'</th>
+        <th scope=$row>'.$time_duration.'</th>
+        <th scope=$row>'.$action.'</th>
+         </tr>';
       }
-    } else {
+      }
+    else {
       echo "No entries found.";
     }
 
