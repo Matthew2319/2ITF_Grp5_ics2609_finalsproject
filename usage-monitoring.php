@@ -46,7 +46,7 @@
     }
 
     // Insert the new entry into the database
-    $sql = "INSERT INTO usage_monitoring (computer_no, date, time_duration, action)
+    $sql = "INSERT INTO usage_monitoring (computer_no, date, time_duration)
             VALUES (' $computer_no', '$date', ' $time_duration')";
     if ($conn->query($sql) === TRUE) {
       echo "<p2><center>New entry added successfully</center></p2>.";
@@ -80,8 +80,7 @@
         $computer_no=$row['computer_no'];
         $date=$row['date'];
         $time_duration=$row['time_duration'];
-        echo '<tr>;
-        
+        echo '<tr>; 
         <th scope=$row>'.$computer_no.'</th>
         <th scope=$row>'.$date.'</th>
         <th scope=$row>'.$time_duration.'</th>

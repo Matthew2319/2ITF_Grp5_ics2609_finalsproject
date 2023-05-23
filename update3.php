@@ -4,6 +4,7 @@ $id = $_GET['updateid'];
 $sql="Select * from `usage_monitoring` where id=$id";
 $result=mysqli_query($conn,$sql);
 $row=mysqli_fetch_assoc($result);
+
 $computer_no=$row['computer_no'];
 $date=$row['date'];
 $time_duration=$row['time_duration'];
@@ -14,12 +15,13 @@ if(isset($_POST['submit'])){
   $date=$_POST['date'];
   $time_duration=$_POST['time_duration'];
 
-  $sql="update `usage_monitoring` set  `computer_no`='$computer_no', `date`='$date'
-    , `time_duration`='$time_duration', where `id`='$id'" ;
-    $result = $conn->query($sql);
+  $sql = "UPDATE `usage_monitoring` SET `computer_no`='$computer_no', `date`='$date', 
+  `time_duration`='$time_duration' WHERE `id`='$id'";
+  $result = mysqli_query($conn, $sql);
+  
     if($result == TRUE){
         
-        header('location:usage-monitoring.php');
+      header('location:usage-monitoring.php');
     }else{
         echo "Error:" . $sql . "<br>" . $conn->error;
     }
@@ -40,7 +42,7 @@ if(isset($_POST['submit'])){
 </div>
 </div>
 
-<form method="post" action="display3.php">
+<form method="post">
     <label for="computer_no">Computer Number:</label>
     <input type="text" id="computer_no" name="computer_no" required="" Value=<?php
     echo $computer_no;?>><br>

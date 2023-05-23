@@ -7,7 +7,7 @@ if(isset($_POST['submit'])){
   $time_duration=$_POST['time_duration'];
   
 
-  $sql="insert into `usage_monitoring`(computer_no,date,time_duration)
+  $sql="insert into `usage_monitoring`(computer_no, date, time_duration)
   values('$computer_no','$date','$time_duration')";
   $result=$conn->query($sql);
   if($result == TRUE){
