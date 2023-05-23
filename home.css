@@ -45,6 +45,10 @@ form {
     padding-left: 40%;
 }
 
+label{
+ 
+}
+
 form label{
   color: rgb(0, 0, 0);
   font-weight: bolder;
@@ -69,14 +73,16 @@ input[type="submit"] {
 
 }
 input[type="text"]{
-  display:flex;
+    display:flex;
     width: 300px;
-    padding: 15px;
-    margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 40px;
     padding-left:3%;
-    padding-bottom:5%;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    text-align:start;
+    font-size: 15px;
+    
 }
 .button1 {
   background-color: rgb(24, 24, 108);
