@@ -32,6 +32,7 @@
   <?php
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form inputs
+    $Lab_No = $_POST["Lab_No"];
     $ComputerNumber = $_POST["ComputerNumber"];
     $Date_ = $_POST["Date_"];
     $Time_ = $_POST["Time_"];
@@ -47,8 +48,8 @@
     }
 
     // Insert the new entry into the database
-    $sql = "INSERT INTO maintenance_schedule (ComputerNumber, Date_, Time_, maintenance_)
-            VALUES (' $ComputerNumber', '$Date_', ' $Time_', '$maintenance_')";
+    $sql = "INSERT INTO maintenance_schedule (Lab_No, ComputerNumber, Date_, Time_, maintenance_)
+            VALUES ( '$Lab_No',' $ComputerNumber', '$Date_', ' $Time_', '$maintenance_')";
     if ($conn->query($sql) === TRUE) {
       echo "<p2><center>New entry added successfully</center></p2>.";
     } else {
@@ -63,6 +64,7 @@
 <table class="table">
     <thead>
     <tr>
+    <th scope="col">Laboratory Number</th>
       <th scope="col">Computer Number</th>
       <th scope="col">Date</th>
       <th scope="col">Time</th>
@@ -79,12 +81,13 @@
     if ($result) {
       while ($row = mysqli_fetch_assoc($result)) {
         $id=$row['id'];
+        $Lab_No=$row['Lab_No'];
         $ComputerNumber=$row['ComputerNumber'];
         $Date_=$row['Date_'];
         $Time_=$row['Time_'];
         $maintenance_=$row['maintenance_'];
         echo '<tr>;
-        
+        <th scope=$row>'.$Lab_No.'</th>
         <th scope=$row>'.$ComputerNumber.'</th>
         <th scope=$row>'.$Date_.'</th>
         <th scope=$row>'.$Time_.'</th>

@@ -2,13 +2,14 @@
 <?php
 include ('connect.php');
 if(isset($_POST['submit'])){
+  $Lab_No=$_POST['Lab_No'];
   $ComputerNumber=$_POST['ComputerNumber'];
   $Date_=$_POST['Date_'];
   $Time_=$_POST['Time_'];
   $maintenance_=$_POST['maintenance_'];
 
-  $sql="insert into `maintenance_schedule`(ComputerNumber,Date_,Time_,maintenance_)
-  values('$ComputerNumber','$Date_','$Time_','$maintenance_')";
+  $sql="insert into `maintenance_schedule`(Lab_No,ComputerNumber,Date_,Time_,maintenance_)
+  values('$Lab_No','$ComputerNumber','$Date_','$Time_','$maintenance_')";
   $result=$conn->query($sql);
   if($result == TRUE){
     header('location:maintenance-schedules.php');
@@ -34,6 +35,9 @@ if(isset($_POST['submit'])){
 </div>
 
   <form method="post">
+    <label for="Lab_No">Laboratory Number:</label>
+    <input type="text" id="Lab_No" name="Lab_No" required><br>
+
     <label for="ComputerNumber">Computer Number:</label>
     <input type="text" id="ComputerNumber" name="ComputerNumber" required><br>
 

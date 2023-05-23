@@ -4,18 +4,20 @@ $id = $_GET['updateid'];
 $sql="Select * from `maintenance_schedule` where id=$id";
 $result=mysqli_query($conn,$sql);
 $row=mysqli_fetch_assoc($result);
+$Lab_No=$row['Lab_No'];
 $ComputerNumber=$row['ComputerNumber'];
 $Date_=$row['Date_'];
 $Time_=$row['Time_'];
 $maintenance_=$row['maintenance_'];
 
 if(isset($_POST['submit'])){
+  $Lab_No=$_POST['Lab_No'];
   $ComputerNumber=$_POST['ComputerNumber'];
   $Date_=$_POST['Date_'];
   $Time_=$_POST['Time_'];
   $maintenance_=$_POST['maintenance_'];
 
-  $sql="update `maintenance_schedule` set  `ComputerNumber`='$ComputerNumber', `Date_`='$Date_'
+  $sql="update `maintenance_schedule` set  `Lab_No`='$Lab_No', `ComputerNumber`='$ComputerNumber', `Date_`='$Date_'
     , `Time_`='$Time_', `maintenance_`='$maintenance_' where `id`='$id'" ;
     $result = $conn->query($sql);
     if($result == TRUE){
@@ -43,6 +45,10 @@ if(isset($_POST['submit'])){
 </div>
 
   <form method="post">
+    <label for="Lab_No">Laboratory Number:</label>
+    <input type="text" id="Lab_No" name="Lab_No" required="" Value=<?php
+    echo $Lab_No;?>><br>
+
     <label for="ComputerNumber">Computer Number:</label>
     <input type="text" id="ComputerNumber" name="ComputerNumber" required="" Value=<?php
     echo $ComputerNumber;?>><br>

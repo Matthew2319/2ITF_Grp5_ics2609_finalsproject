@@ -1,31 +1,47 @@
 <?php
-include ('connect.php');
+include  ('connect.php');
+
+// Get the ID of the entry to be updated from the GET request.
 $id = $_GET['updateid'];
+
+// Run the query to select the entry from the database.
 $sql="Select * from `entries` where id=$id";
 $result=mysqli_query($conn,$sql);
+
+// Get the values from the row.
 $row=mysqli_fetch_assoc($result);
 $labNumber=$row['labNumber'];
 $compNumber=$row['compNumber'];
+$Tools=$row['Tools'];
 $status=$row['status'];
 $maintenance=$row['maintenance'];
 
+// Check if the submit button has been clicked.
 if(isset($_POST['submit'])){
-    $labNumber=$_POST['labNumber'];
-    $compNumber=$_POST['compNumber'];
-    $status=$_POST['status'];
-    $maintenance=$_POST['maintenance'];
 
-    $sql="update `entries` set  `labNumber`='$labNumber', `compNumber`='$compNumber'
-    , `status`='$status', `maintenance`='$maintenance' where `id`='$id'" ;
-    $result = $conn->query($sql);
-    if($result == TRUE){
-        
-        header('location:inventory-management.php');
-    }else{
-        echo "Error:" . $sql . "<br>" . $conn->error;
-    }
+  // Retrieve the values from the form.
+  $labNumber=$_POST['labNumber'];
+  $compNumber=$_POST['compNumber'];
+  $Tools=$row['Tools'];
+  $status=$_POST['status'];
+  $maintenance=$_POST['maintenance'];
+
+  // Update the entry in the database.
+  $sql="update `entries` set  `labNumber`='$labNumber', `compNumber`='$compNumber'
+    , `Tools`='$Tools',`status`='$status', `maintenance`='$maintenance' where `id`='$id'" ;
+  $result = $conn->query($sql);
+
+  // Check if the query was successful.
+  if($result == TRUE){
+
+    // Redirect the browser to the inventory-management.php page.
+    header('location:inventory-management.php');
+  }else{
+    echo "Error:" . $sql . "<br>" . $conn->error;
+  }
 }
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,6 +63,10 @@ if(isset($_POST['submit'])){
     <label for="compNumber">Computer Number:</label>
     <input type="text" id="compNumber" name="compNumber" required="" Value=<?php
     echo $compNumber;?>><br>
+
+    <label for="Tools">Tools:</label>
+    <input type="text" id="Tools" name="Tools" required="" Value=<?php
+    echo $Tools;?>><br>
 
     <label for="status">Status:</label>
     <input type="text" id="status" name="status" required="" Value=<?php
