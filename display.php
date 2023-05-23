@@ -5,11 +5,12 @@ include ('connect.php');
 if(isset($_POST['submit'])){
   $labNumber=$_POST['labNumber'];
   $compNumber=$_POST['compNumber'];
+  $Tools=$_POST['Tools'];
   $status=$_POST['status'];
   $maintenance=$_POST['maintenance'];
  //This line of code creates the SQL statement that will be used to insert the values of the form fields into the database.
-  $sql="insert into `entries`(labNumber,compNumber,status,maintenance)
-  values('$labNumber','$compNumber','$status','$maintenance')";
+  $sql="insert into `entries`(labNumber,compNumber,Tools,status,maintenance)
+  values('$labNumber','$compNumber',' $Tools','$status','$maintenance')";
 
   //This line of code executes the SQL statement using the query() method of the mysqli object $conn
   $result=$conn->query($sql);

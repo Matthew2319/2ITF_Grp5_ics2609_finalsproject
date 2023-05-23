@@ -34,7 +34,7 @@
     // Retrieve form inputs
     $labNumber = $_POST["labNumber"];
     $compNumber = $_POST["compNumber"];
-    $Tools =$_POST["Tools"];
+    $Tools = $_POST["Tools"];
     $status = $_POST["status"];
     $maintenance = $_POST["maintenance"];
 
@@ -49,7 +49,7 @@
     }
 
     // Insert the new entry into the database
-    $sql = "INSERT INTO entries (labNumber, compNumber,Tools, status, maintenance)
+    $sql = "INSERT INTO entries (labNumber, compNumber, Tools, status, maintenance)
             VALUES ('$labNumber', '$compNumber', '$Tools', '$status', '$maintenance')";
     if ($conn->query($sql) === TRUE) {
       echo "<h2><center>New entry added successfully</center></h2>.";
