@@ -22,7 +22,7 @@ if(isset($_POST['submit'])){
   // Retrieve the values from the form.
   $labNumber=$_POST['labNumber'];
   $compNumber=$_POST['compNumber'];
-  $Tools=$row['Tools'];
+  $Tools=$_POST['Tools'];
   $status=$_POST['status'];
   $maintenance=$_POST['maintenance'];
 
